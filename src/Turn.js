@@ -20,7 +20,7 @@ class Turn {
       return this.correct = false;
     }
 // return if guess is true(correct) or false(incorrect)
-  }
+}
 
   giveFeedback() {
     if(this.correct === true) {
