@@ -44,15 +44,16 @@ describe('Turn', function() {
     expect(turn2.evaluateGuess()).to.equal(false);
   });
 
-  it.skip('should return "correct!"', () => {
-    const card1 = new Card();
-    const card2 = new Card();
-    const turn1 = new Turn();
-    const turn2 = new Turn();
+  it('should return "correct!"', () => {
+    const card1 = new Card(17, "What does the reduce() method take in?", ["callback function and initializer", "callback function and current element", "callback function and accumulator"], "callback function and initializer");
+    const card2 = new Card(21, "Which iteration method is best for DOM manipulation?", ["forEach()", "map()", "reduce()"], "forEach()");
+    const turn1 = new Turn(card1.correctAnswer, card1);
+    const turn2 = new Turn(card2.answers[2], card2);
+
+    turn1.evaluateGuess();
+    turn2.evaluateGuess();
 
     expect(turn1.giveFeedback()).to.equal('correct!');
-    expect(turn2.evaluateGuess()).to.equal('incorrect!');
+    expect(turn2.giveFeedback()).to.equal('incorrect!');
   });
-
-
 });
