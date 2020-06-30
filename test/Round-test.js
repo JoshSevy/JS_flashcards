@@ -4,6 +4,7 @@ const expect = chai.expect;
 const Round = require('../src/Round');
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
+const Turn = require('../src/Turn');
 
 describe('Round', () => {
 
@@ -40,30 +41,49 @@ describe('Round', () => {
   })
 
   it('should be able to add 1 to turns every turn', () => {
+    const turn1 = new Turn('false', card4);
+    const turn2 = new Turn('current element', card3);
 
+    round.takeTurn(turn1);
+
+    expect(round.turns).to.deep.equal(1);
+
+    round.takeTurn(turn2);
+
+    expect(round.turns).to.deep.equal(2);
   })
 
   it('should be able to evaluate guess', () => {
+    const turn1 = new Turn('false', card4);
+    const turn2 = new Turn('current element', card3);
+    const round = new Round(deck);
 
-  })
+    round.takeTurn(turn1);
 
-  it('should be able to give feedback on guess', () => {
-
-  })
-
-  it('should be able to store incorrect guesses by id', () => {
-
-  })
-
-  it('should be able to calculate percentage of correct guesses', () => {
-
-  })
-
-  it('should be able to end the round, and log percentage correct', () => {
+    expect(round.turns).to.deep.equal(1);
     
+    round.takeTurn(turn2);
+
+    expect(round.turns).to.deep.equal(2);
+    expect(round.takeTurn(turn1)).to.equal(false);
+    expect(round.takeTurn(turn2)).to.equal(true);
+
+  })
+
+  it.skip('should be able to give feedback on guess', () => {
+
+  })
+
+  it.skip('should be able to store incorrect guesses by id', () => {
+
+  })
+
+  it.skip('should be able to calculate percentage of correct guesses', () => {
+
+  })
+
+  it.skip('should be able to end the round, and log percentage correct', () => {
+
   })
 
 })
-
-
-//expect(deck2.countCards()).to.equal(3);
