@@ -40,8 +40,8 @@ describe('Turn', function() {
     const turn1 = new Turn(card.correctAnswer, card);
     const turn2 = new Turn(card.answers[1], card);
 
-    expect(turn1.evaluateGuess()).to.equal(true);
-    expect(turn2.evaluateGuess()).to.equal(false);
+    expect(turn1.evaluateGuess()).to.deep.equal(true);
+    expect(turn2.evaluateGuess()).to.deep.equal(false);
   });
 
   it('should return "correct!"', () => {
@@ -53,7 +53,7 @@ describe('Turn', function() {
     turn1.evaluateGuess();
     turn2.evaluateGuess();
 
-    expect(turn1.giveFeedback()).to.equal('correct!');
-    expect(turn2.giveFeedback()).to.equal('incorrect!');
+    expect(turn1.giveFeedback()).to.deep.equal('correct!');
+    expect(turn2.giveFeedback()).to.deep.equal('incorrect!');
   });
 });
