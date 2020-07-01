@@ -1,23 +1,28 @@
 class Round {
-  constructor(cards) {
-    this.deck = cards;
-    this.turns = 0;//The turns count is updated, regardless of whether the guess is correct or incorrect
-    this.incorrectGuesses = [];//Guess is evaluated/recorded. Incorrect guesses will be stored (via the id) in an array of incorrectGuesses
+  constructor(deck) {
+    this.deck = deck;
+    this.turns = 0;
+    this.incorrectGuesses = [];
   }
 
-  returnCurrentCard(){
-    //The currentCard should be the first Card in the Deck (the array of Cards) at the start of the Round
+  returnCurrentCard() {
+    return this.deck.cards[this.turns];
   }
 
-  takeTurn(){
-    //method that updates turns count, evaluates guesses, gives feedback, and stores ids of incorrect guesses
+  takeTurn(turn) {
+    turn.evaluateGuess();
+    turn.giveFeedback();
+    if(turn.giveFeedback() === 'incorrect!') {
+      this.incorrectGuesses.push(this.returnCurrentCard().id);
+    } 
+    this.turns++;
   }
-
+    
   calculatePercentCorrect() {
-    //method that calculates and returns the percentage of correct guesses
+    return (((this.deck.cards.length - this.incorrectGuesses.length)/this.deck.cards.length) * 100);
   }
 
-  endRound(){
+  endRound() {
     //endRound: method that prints the following to the console: ‘** Round over! ** You answered <>% of the questions correctly!’
   }
 
