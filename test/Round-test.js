@@ -28,6 +28,7 @@ describe('Round', () => {
   const deck = new Deck(cards);
   const round = new Round(deck);
 
+
   it('should have a property of turns with a default value of 0', () => {
     expect(round.turns).to.equal(0);
   });
@@ -37,7 +38,7 @@ describe('Round', () => {
   })
 
   it('should return current card in the deck', () => {
-    expect(round.returnCurrentCard()).to.equal(round.deck[0]);
+    expect(round.returnCurrentCard()).to.equal(round.deck.cards[0]);
   })
 
   it('should be able to add 1 to turns every turn', () => {
@@ -65,25 +66,78 @@ describe('Round', () => {
     round.takeTurn(turn2);
 
     expect(round.turns).to.deep.equal(2);
-    expect(round.takeTurn(turn1)).to.equal(false);
-    expect(round.takeTurn(turn2)).to.equal(true);
+    expect(turn1.evaluateGuess()).to.be.false;
+    expect(turn2.evaluateGuess()).to.be.true;
 
   })
 
-  it.skip('should be able to give feedback on guess', () => {
+  it('should be able to give feedback on guess', () => {
+    const turn1 = new Turn('false', card4);
+    const turn2 = new Turn('current element', card3);
+    const round = new Round(deck);
 
+    round.takeTurn(turn1);
+
+    expect(round.turns).to.deep.equal(1);
+
+    round.takeTurn(turn2);
+
+    expect(round.turns).to.deep.equal(2);
+    expect(turn1.evaluateGuess()).to.be.false;
+    expect(turn2.evaluateGuess()).to.be.true;
+    expect(turn1.giveFeedback()).to.deep.equal('incorrect!');
+    expect(turn2.giveFeedback()).to.deep.equal('correct!');
   })
 
-  it.skip('should be able to store incorrect guesses by id', () => {
+  it('should be able to store incorrect guesses by id', () => {
+    const turn1 = new Turn('forEach()', card1);
+    const turn2 = new Turn('the accumulator', card2);
+    const round = new Round(deck);
 
+    round.returnCurrentCard();
+    round.takeTurn(turn1);
+    
+    expect(round.turns).to.deep.equal(1);
+
+    round.returnCurrentCard();
+    round.takeTurn(turn2);
+    
+    expect(round.turns).to.deep.equal(2);
+    expect(turn1.evaluateGuess()).to.be.false;
+    expect(turn2.evaluateGuess()).to.be.true;
+    expect(turn1.giveFeedback()).to.deep.equal('incorrect!');
+    expect(turn2.giveFeedback()).to.deep.equal('correct!');
+    expect(round.incorrectGuesses).to.be.an('array').to.have.a.lengthOf(1);
   })
 
-  it.skip('should be able to calculate percentage of correct guesses', () => {
+  it('should be able to calculate percentage of correct guesses', () => {
+    const turn1 = new Turn('forEach()', card1);
+    const turn2 = new Turn('the accumulator', card2);
+    const turn3 = new Turn('current element', card3);
+    const turn4 = new Turn('false', card4);
+    const round = new Round(deck);
 
+    round.takeTurn(turn1);
+    round.takeTurn(turn2);
+    round.takeTurn(turn3);
+    round.takeTurn(turn4);
+
+    expect(round.calculatePercentCorrect()).to.be.deep.equal(50);
   })
 
-  it.skip('should be able to end the round, and log percentage correct', () => {
+  it('should be able to end the round, and log percentage correct', () => {
+    const turn1 = new Turn('forEach()', card1);
+    const turn2 = new Turn('the accumulator', card2);
+    const turn3 = new Turn('current element', card3);
+    const turn4 = new Turn('false', card4);
+    const round = new Round(deck);
 
+    round.takeTurn(turn1);
+    round.takeTurn(turn2);
+    round.takeTurn(turn3);
+    round.takeTurn(turn4);
+
+    expect(round.endRound()).to.deep.equal('** Round over! ** You answered 50% of the questions correctly!');
   })
 
 })
