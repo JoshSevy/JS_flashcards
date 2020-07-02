@@ -8,8 +8,8 @@
 
 * [About the Project](#about-the-project)
 * [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
   * [Installation](#installation)
+  * [Playing Flash Cards](#playing-flash-cards)
 * [Contact](#contact)
 
 
