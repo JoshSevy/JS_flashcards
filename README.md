@@ -1,4 +1,4 @@
-![GitHub repo size](https://img.shields.io/github/repo-size/JoshSevy/flashcards-starter)
+![GitHub repo size](https://img.shields.io/github/repo-size/JoshSevy/JS_flashcards)
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
@@ -62,10 +62,10 @@ Project Link: [https://github.com/JoshSevy/flashcards-starter](https://github.co
 
 
 
-[forks-shield]: https://img.shields.io/github/forks/JoshSevy/flashcards-starter?style=flat-square
+[forks-shield]: https://img.shields.io/github/forks/JoshSevy/JS_flashcards?style=flat-square
 [forks-url]: https://github.com/JoshSevy/flashcards-starter/network/members
-[stars-shield]: https://img.shields.io/github/stars/JoshSevy/flashcards-starter.svg?style=flat-square
-[stars-url]: https://github.com/JoshSevy/flashcards-starter/stargazers
+[stars-shield]: https://img.shields.io/github/stars/JoshSevy/JS_flashcards.svg?style=flat-square
+[stars-url]: https://github.com/JoshSevy/JS_flashcards/stargazers
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/joshua-sevy
 [product-screenshot]: images/screenshot.png
