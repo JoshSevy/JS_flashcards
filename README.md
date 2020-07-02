@@ -1,5 +1,6 @@
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
+![GitHub repo size](https://img.shields.io/github/repo-size/JoshSevy/js-flashcards)
+![GitHub contributors](https://img.shields.io/github/contributors/JoshSevy/js-flashcards)
+![GitHub stars](https://img.shields.io/github/stars/JoshSevy/js-flashcards?style=social)
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 # Flash Cards
@@ -17,10 +18,10 @@
 
 ![product-screenshot](https://media.giphy.com/media/mDBH5Ut557fiAU9ddL/giphy.gif)
 
-Wanna look like a hacker while also getting a greater knowledge of JavaScript. Well Flash Cards is the game for you. Now you can study all those lovely JavaScript methods while also looking like a world class hacker. 
+Wanna look like a hacker while also getting a greater knowledge of JavaScript. Well Flash Cards is the game for you. Now you can study all those lovely JavaScript methods while also looking like a world class hacker. We are gonna start with 30 cards to get the learning going, expect to see more sets soon along with an ability to combine sets to really take it to the next level.
 
 ## Getting Started
-
+---
 
 
 ### __Installation__

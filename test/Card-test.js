@@ -30,4 +30,14 @@ describe('Card', () => {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     expect(card.correctAnswer).to.equal('object');
   });
+
+  it('should have correct, match answer in questions array', () => {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    expect(card.correctAnswer).to.equal(card.answers[0]);
+  });
+
+  it('should have all keys in card object', () => {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    expect(card).to.have.all.keys('id', 'question', 'answers', 'correctAnswer');
+  });
 });
