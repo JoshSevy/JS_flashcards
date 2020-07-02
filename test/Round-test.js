@@ -28,16 +28,19 @@ describe('Round', () => {
   const deck = new Deck(cards);
   const round = new Round(deck);
 
-
   it('should have a property of turns with a default value of 0', () => {
+
     expect(round.turns).to.equal(0);
+
   });
 
   it('should have a property of incorrectGuesses, that is an empty array by default', () => {
+
     expect(round.incorrectGuesses).to.be.an('array').that.is.empty;
   })
 
   it('should return current card in the deck', () => {
+    
     expect(round.returnCurrentCard()).to.equal(round.deck.cards[0]);
   })
 
@@ -59,16 +62,15 @@ describe('Round', () => {
     const turn2 = new Turn('current element', card3);
     const round = new Round(deck);
 
-    round.takeTurn(turn1);
+    round.takeTurn(turn1.guess);
 
     expect(round.turns).to.deep.equal(1);
     
-    round.takeTurn(turn2);
+    round.takeTurn(turn2.guess);
 
     expect(round.turns).to.deep.equal(2);
     expect(turn1.evaluateGuess()).to.be.false;
     expect(turn2.evaluateGuess()).to.be.true;
-
   })
 
   it('should be able to give feedback on guess', () => {
@@ -76,11 +78,11 @@ describe('Round', () => {
     const turn2 = new Turn('current element', card3);
     const round = new Round(deck);
 
-    round.takeTurn(turn1);
+    round.takeTurn(turn1.guess);
 
     expect(round.turns).to.deep.equal(1);
 
-    round.takeTurn(turn2);
+    round.takeTurn(turn2.guess);
 
     expect(round.turns).to.deep.equal(2);
     expect(turn1.evaluateGuess()).to.be.false;
@@ -95,12 +97,12 @@ describe('Round', () => {
     const round = new Round(deck);
 
     round.returnCurrentCard();
-    round.takeTurn(turn1);
+    round.takeTurn(turn1.guess);
     
     expect(round.turns).to.deep.equal(1);
 
     round.returnCurrentCard();
-    round.takeTurn(turn2);
+    round.takeTurn(turn2.guess);
     
     expect(round.turns).to.deep.equal(2);
     expect(turn1.evaluateGuess()).to.be.false;
@@ -117,10 +119,10 @@ describe('Round', () => {
     const turn4 = new Turn('false', card4);
     const round = new Round(deck);
 
-    round.takeTurn(turn1);
-    round.takeTurn(turn2);
-    round.takeTurn(turn3);
-    round.takeTurn(turn4);
+    round.takeTurn(turn1.guess);
+    round.takeTurn(turn2.guess);
+    round.takeTurn(turn3.guess);
+    round.takeTurn(turn4.guess);
 
     expect(round.calculatePercentCorrect()).to.be.deep.equal(50);
   })
@@ -132,10 +134,10 @@ describe('Round', () => {
     const turn4 = new Turn('false', card4);
     const round = new Round(deck);
 
-    round.takeTurn(turn1);
-    round.takeTurn(turn2);
-    round.takeTurn(turn3);
-    round.takeTurn(turn4);
+    round.takeTurn(turn1.guess);
+    round.takeTurn(turn2.guess);
+    round.takeTurn(turn3.guess);
+    round.takeTurn(turn4.guess);
 
     expect(round.endRound()).to.deep.equal('** Round over! ** You answered 50% of the questions correctly!');
   })
