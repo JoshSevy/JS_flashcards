@@ -27,7 +27,7 @@ Wanna look like a hacker while also getting a greater knowledge of JavaScript. W
 ### __Installation__
 
 Clone the repo
-```sh
+```
 git clone https://github.com/JoshSevy/js-flashcards.git
 ```
 ### __Playing Flash Cards__
@@ -40,7 +40,7 @@ in the terminal input: node index.js
 ```
 2. Answering questions:
 ```
-enter the number associated with the answer you want.
+To answer a question you can enter the number of the answer you would like, or use up or down on a keyboard to select. Followed by the return key.
 ```
 3. Results:
 ```
